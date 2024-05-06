@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput, View } from "react-native";
 
-function AppInput({ placeholderText = "input", setValue, value }) {
+function AppInput({ placeholderText = "input", setValue, value , isPassword = false }) {
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -8,7 +8,7 @@ function AppInput({ placeholderText = "input", setValue, value }) {
         placeholder={placeholderText}
         onChangeText={(newText) => setValue(newText)}
         defaultValue={value}
-        secureTextEntry
+        secureTextEntry={isPassword}
       />
     </View>
   );

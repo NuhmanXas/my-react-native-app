@@ -2,10 +2,20 @@ import { useState } from "react";
 import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import AppInput from "../Components/AppInput";
 import AppTypography from "../Components/AppTypography";
+import AppButton from "../Components/AppButton";
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function SignInPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigation = useNavigation();
+
+
+  const handleLoginFunction = () => {
+    navigation.navigate("Dashboard");
+  }
 
   return (
     <View style={styles.container}>
@@ -27,7 +37,9 @@ export default function SignInPage() {
         placeholderText="Enter your Password"
         setValue={setPassword}
         value={password}
+        isPassword
       />
+      <AppButton text={"Login"} onPress={handleLoginFunction} />
     </View>
   );
 }
